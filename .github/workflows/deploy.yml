@@ -5,8 +5,20 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -18,20 +30,20 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
-      - name: Configure Git
-        run: |
-          git config --global user.name "drix molina"
-          git config --global user.email "drixmolina31@gmail.com"
-
       - name: Install dependencies
         run: npm install
 
       - name: Build production assets
         run: npm run build
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
       - name: Deploy to GitHub Pages
-        run: |
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/drixmolina/miniproject.git
-          npm run deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        id: deployment
+        uses: actions/deploy-pages@v4
