@@ -1,0 +1,157 @@
+.blog-page {
+  padding: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.blog-empty,
+.blog-form-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 72vh;
+}
+
+.blog-detail-card,
+.blog-form-card,
+.blog-list-card {
+  background: #ffffff;
+  border: 1px solid #e3e6eb;
+  border-radius: 14px;
+  box-shadow: 0 14px 30px rgba(18, 32, 60, 0.08);
+  padding: 28px;
+}
+
+.blog-detail-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 22px;
+}
+
+.blog-detail-header h1 {
+  margin: 0 0 10px;
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.blog-meta {
+  color: #697386;
+  margin: 0;
+}
+
+.blog-like {
+  display: flex;
+  align-items: center;
+}
+
+.blog-content {
+  line-height: 1.75;
+  color: #333;
+  font-size: 1rem;
+  margin-bottom: 24px;
+}
+
+.blog-detail-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.blog-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.blog-form-header h1 {
+  margin: 0 0 8px;
+}
+
+.blog-form-header p {
+  margin: 0;
+  color: #556275;
+}
+
+.blog-form {
+  display: grid;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.blog-form label {
+  display: grid;
+  gap: 8px;
+  font-weight: 600;
+  color: #1d2939;
+}
+
+.blog-form input,
+.blog-form textarea {
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 1rem;
+  background: #f8fafc;
+}
+
+.blog-form textarea {
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.form-error {
+  color: #d14343;
+  background: #ffecec;
+  padding: 12px 14px;
+  border-radius: 10px;
+}
+
+.button {
+  border: none;
+  border-radius: 10px;
+  padding: 11px 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button.primary {
+  background: #2563eb;
+  color: #fff;
+}
+
+.button.secondary {
+  background: #f1f5f9;
+  color: #1f2937;
+}
+
+.button.tertiary {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.button.danger {
+  background: #ef4444;
+  color: #fff;
+}
+
+@media (max-width: 720px) {
+  .blog-detail-header,
+  .blog-detail-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .blog-actions {
+    justify-content: stretch;
+  }
+}
